@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Benefits & Lifestyle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --green:#0AA652;
+    --green-dark:#075E33;
+    --ink:#12261C;
+    --paper:#F6FAF7;
+    --line:#DCE9E1;
+    --muted:#5E7A6B;
+    --shadow:0 20px 40px -20px rgba(7,94,51,.25);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:'Noto Sans Thai',sans-serif;
+    background:var(--paper);
+    color:var(--ink);
+    padding:48px 20px 72px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;}
+  .section-head{text-align:center;margin-bottom:24px;}
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:.04em;
+    color:var(--green-dark);
+    margin-bottom:6px;
+  }
+  h2{
+    font-size:34px;
+    font-weight:800;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  .section-head p{
+    color:var(--muted);
+    font-size:14.5px;
+  }
+
+  /* ===== Benefits bubbles ===== */
+  .benefit-cloud{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    justify-content:center;
+    padding:20px 0 8px;
+  }
+  .bubble{
+    background:#fff;
+    border:1px solid var(--line);
+    padding:12px 20px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:600;
+    color:#3E5749;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease, background .2s ease, color .2s ease;
+    cursor:pointer;
+    user-select:none;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .bubble .ic{font-size:16px;}
+  .bubble:hover{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+    transform:translateY(-3px) scale(1.05);
+    box-shadow:0 12px 22px -10px rgba(7,94,51,.5);
+  }
+  .bubble:active,
+  .bubble.is-pressed{
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    color:#fff;
+    transform:translateY(0) scale(0.94);
+    box-shadow:0 4px 10px -4px rgba(7,94,51,.5);
+  }
+
+  /* ===== Life Style marquee ===== */
+  .life-wrap{
+    overflow:hidden;
+    position:relative;
+    padding:10px 0;
+    margin-top:8px;
+    -webkit-mask-image:linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+    mask-image:linear-gradient(90deg, transparent 0, #000 5%, #000 95%, transparent 100%);
+  }
+  .life-track{
+    display:flex;
+    gap:18px;
+    width:max-content;
+    animation:marqueeLeft 36s linear infinite;
+  }
+  .life-wrap:hover .life-track{ animation-play-state:paused; }
+  @keyframes marqueeLeft{ from{transform:translateX(0);} to{transform:translateX(-50%);} }
+  .life-card{
+    position:relative;
+    width:280px;
+    height:190px;
+    border-radius:20px;
+    overflow:hidden;
+    flex-shrink:0;
+    box-shadow:0 16px 30px -18px rgba(7,94,51,.45);
+    transition:transform .4s cubic-bezier(.2,.8,.2,1), box-shadow .4s ease;
+    background:linear-gradient(135deg,var(--green),var(--green-dark));
+    cursor:pointer;
+  }
+  .life-card:hover{ transform:translateY(-6px) scale(1.02); box-shadow:var(--shadow); }
+  .life-card img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .life-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
+  }
+  .life-card .cap{
+    position:absolute;
+    left:16px;
+    bottom:14px;
+    color:#fff;
+    z-index:2;
+  }
+  .life-card .cap b{display:block; font-size:14.5px; font-weight:700;}
+  .life-card .cap span{display:block; font-size:11.5px; opacity:.85; margin-top:1px;}
+
+  .life-section-head{margin-top:64px;}
+
+  .empty-msg{color:var(--muted); font-size:14px; text-align:center; padding:20px 0;}
+
+  @media (max-width:520px){
+    body{padding:32px 14px 48px;}
+    h2{font-size:24px;}
+    .eyebrow{font-size:11.5px;}
+    .section-head p{font-size:13px;}
+    .section-head{margin-bottom:16px;}
+    .life-section-head{margin-top:40px;}
+    .benefit-cloud{gap:10px;padding:14px 0 4px;}
+    .bubble{padding:9px 14px;font-size:12.5px;gap:6px;}
+    .bubble .ic{font-size:14px;}
+    .life-card{width:200px;height:140px;border-radius:16px;}
+    .life-card .cap{left:12px;bottom:10px;}
+    .life-card .cap b{font-size:13px;}
+    .life-card .cap span{font-size:10.5px;}
+    .life-track{gap:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="section-head">
+    <span class="eyebrow">LIFE AT WORK</span>
+    <h2>Benefits</h2>
+  </div>
+  <div class="benefit-cloud" id="benefit-cloud"></div>
+
+  <div class="section-head life-section-head">
+    <span class="eyebrow">LIFE AT WORK</span>
+    <h2>Life Style</h2>
+    <p>ภาพบรรยากาศการทำงานและกิจกรรม</p>
+  </div>
+  <div class="life-wrap" id="life-wrap">
+    <div class="life-track" id="life-track"></div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+<script>
+  // ===== ตั้งค่าตรงนี้ =====
+  // นำ URL ที่ได้จากการ Publish to web แบบ CSV ของแท็บชีท "Benefits & Lifestly" มาใส่แทนตรงนี้
+  const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSGJPc4EYq-CaLqIIJfyNbtHZ3aKRBMlTxLadZbeL--3oYzuvk4wTpoRiPTnVMFFPFD6Fb4D-9WPQRe/pub?gid=2069493820&single=true&output=csv";
+
+  // คอลัมน์ที่ชีทต้องมี (แถวแรกเป็นหัวคอลัมน์ ตัวพิมพ์เล็กทั้งหมด):
+  // type | icon | title | description | image_url | link
+  //
+  // type = "benefit"   -> ขึ้นเป็นแคปซูลในส่วน Benefits (ใช้ icon เป็นอิโมจิ + title เป็นข้อความ)
+  // type = "lifestyle" -> ขึ้นเป็นการ์ดรูปวิ่งในส่วน Life Style (ใช้ image_url, title, description เป็นคำบรรยายเล็กใต้ชื่อ)
+
+  const benefitCloud = document.getElementById('benefit-cloud');
+  const lifeTrack = document.getElementById('life-track');
+  const lifeWrap = document.getElementById('life-wrap');
+
+  function renderBenefits(items) {
+    if (items.length === 0) {
+      benefitCloud.innerHTML = '<p class="empty-msg">ยังไม่มีข้อมูลสวัสดิการ</p>';
+      return;
+    }
+    benefitCloud.innerHTML = items.map(it => `
+      <div class="bubble">
+        <span class="ic">${it.icon || '✅'}</span>${it.title || ''}
+      </div>
+    `).join('');
+
+    // เพิ่ม class ตอนกด/แตะ เพื่อให้ effect ขยับทำงานแน่นอนบนมือถือทุกรุ่น
+    benefitCloud.querySelectorAll('.bubble').forEach(b => {
+      const press = () => b.classList.add('is-pressed');
+      const release = () => b.classList.remove('is-pressed');
+      b.addEventListener('pointerdown', press);
+      b.addEventListener('pointerup', release);
+      b.addEventListener('pointerleave', release);
+      b.addEventListener('pointercancel', release);
+    });
+  }
+
+  function renderLifestyle(items) {
+    if (items.length === 0) {
+      lifeWrap.style.display = 'none';
+      return;
+    }
+    const cardsHtml = items.map(it => {
+      const bg = it.image_url && it.image_url.trim() !== ''
+        ? `<img src="${it.image_url}" alt="${it.title || ''}">`
+        : '';
+      return `
+        <div class="life-card">
+          ${bg}
+          <div class="cap"><b>${it.title || ''}</b>${it.description ? `<span>${it.description}</span>` : ''}</div>
+        </div>
+      `;
+    }).join('');
+    // ทำซ้ำ 2 รอบ เพื่อให้เลื่อนวนได้ต่อเนื่องไม่มีรอยต่อ (seamless loop)
+    lifeTrack.innerHTML = cardsHtml + cardsHtml;
+
+    // คลิกที่การ์ดเพื่อเปิดลิงก์ (ถ้ามี)
+    lifeTrack.querySelectorAll('.life-card').forEach((card, i) => {
+      const it = items[i % items.length];
+      if (it.link) {
+        card.addEventListener('click', () => window.open(it.link, '_blank'));
+      }
+    });
+  }
+
+  Papa.parse(SHEET_CSV_URL, {
+    download: true,
+    header: true,
+    skipEmptyLines: true,
+    complete: function(results) {
+      const rows = (results.data || []).filter(r =>
+        (r.title && r.title.trim() !== '') || (r.image_url && r.image_url.trim() !== '')
+      );
+      const benefits = rows.filter(r => (r.type || '').trim().toLowerCase() === 'benefit');
+      const lifestyle = rows.filter(r => {
+        const t = (r.type || '').trim().toLowerCase();
+        return t === 'lifestyle' || t === 'lifestly';
+      });
+      renderBenefits(benefits);
+      renderLifestyle(lifestyle);
+    },
+    error: function() {
+      benefitCloud.innerHTML = '<p class="empty-msg">ไม่สามารถโหลดข้อมูลได้ กรุณาลองใหม่อีกครั้ง</p>';
+      lifeWrap.style.display = 'none';
+    }
+  });
+</script>
+</body>
+</html>
